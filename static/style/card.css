@@ -57,9 +57,10 @@ main container style
     width: 100%;
     height: 100%;
     position: relative;
-    transition: transform 1s;
+    transition: transform 4s;
+    transform-style: preserve-3d;
     margin: 0 auto;
-    border-radius: 10%;
+    border-radius: 10px;
     box-shadow: -15px 20px 20px rgba(22, 4, 74, 0.15);
     background-color: var(--dark-blue);
 }
@@ -68,11 +69,12 @@ main container style
     cursor: pointer;
 }
 
-.card__front .card__back {
+.card__front, .card__back {
     width: 100%;
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
+    transform-style: preserve-3d;
 }
 
 .card__front {
@@ -112,8 +114,8 @@ main container style
     flex-direction: column;
 }
 
-.card__holder__tile,
-.card__expiration__date {
+.card__holder__title,
+.card__expiration__title {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--white);
     opacity: 0.7;
@@ -123,4 +125,47 @@ main container style
 .card__holder__name,
 .card__expiration__date {
     text-transform: uppercase;
+}
+
+.card__back {
+    padding-top: 4rem;
+    transform: rotateY(180deg);
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card__stripe {
+    height: 4rem;
+    background-color: var(--grayl);
+}
+
+.card__signature {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 4.5rem;
+    background-color: var(--white);
+    margin: 2rem 6rem 0 2rem;
+    padding-right: 1rem;
+}
+.card__cvv,
+.card__cvv-number,
+.card__info {
+    font-family: "Open Sans",sans-serif;
+}
+.card__cvv,
+.card__cvv-number {
+    color: var(--dark-blue);
+}
+
+.card__cvv {
+    margin-right: 0.5rem;
+}
+
+.card__info {
+    font-size: 0.7rem;
+    padding: 1.5rem 2rem;
+    color: var(--white);
 }
